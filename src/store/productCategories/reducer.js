@@ -1,12 +1,12 @@
 const initialState = {
   loading: false,
-  posts: [],
+  categories: [],
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    case typeName:
-      return { ...state, ...payload };
+    case "ADD_CATEGORIES_TO_STATE":
+      return { ...state, categories: [...payload] };
 
     default:
       return state;

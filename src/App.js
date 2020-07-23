@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path="/category/:categoryId" />
         <Route component={HomePage} />
       </Switch>
     </div>
