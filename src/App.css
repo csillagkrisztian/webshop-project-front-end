@@ -42,5 +42,7 @@
   display: flex; /* or inline-flex */
   flex-direction: row;
   flex-wrap: wrap;
-  max-height: 300px;
+  align-items: stretch;
+  flex-basis: auto;
+  width: auto;
 }

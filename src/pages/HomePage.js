@@ -6,20 +6,24 @@ import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const productsInCategories = useSelector(selectProducts);
-  console.log(productsInCategories);
+  const categories = useSelector(selectProducts);
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
-  return (
+  return !categories ? (
+    <h3>
+      Hey! It seems we still need some stuff to work properly! Just a moment...
+    </h3>
+  ) : (
     <div>
       <p>Home Page</p>
       <div className="container">
-        {productsInCategories.categories.map((c) => {
+        {categories.categories.map((c) => {
           return (
             <div key={c.id}>
               <Link to={`category/${c.id}`} style={{ margin: "8px" }}>
                 <img
+                  alt={c.description}
                   src={c.imageUrl}
                   style={{ width: "200px", height: "auto" }}
                 />
