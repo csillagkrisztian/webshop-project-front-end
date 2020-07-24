@@ -10,14 +10,13 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   const products = useSelector(selectAllProducts);
-  console.log(products.products);
 
   useEffect(() => {
     dispatch(getAllCategories());
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  return !categories && !products ? (
+  return !categories.categories.length && !products.products.length ? (
     <h3>
       Hey! It seems we still need some stuff to work properly! Just a moment...
     </h3>
