@@ -12,9 +12,9 @@ export const userLoggedIn = (me, token) => {
 };
 
 export const bootstrapLoginState = () => async (dispatch, getState) => {
-  if (localStorage.token) {
+  if (localStorage.accessToken) {
     const meConfig = {
-      headers: { Authorization: `Bearer ${localStorage.token}` },
+      headers: { Authorization: `Bearer ${localStorage.accessToken}` },
     };
     const mePost = await axios.get(`${url}/auth/me`, meConfig);
     dispatch(userLoggedIn(mePost.data, localStorage.token));
@@ -34,7 +34,7 @@ export function login(email, password) {
       const mePost = await axios.get(`${url}/auth/me`, meConfig);
       console.log(mePost);
       dispatch(userLoggedIn(mePost.data, loginPost.data.jwt));
-      localStorage.setItem("token", loginPost.data.jwt);
+      localStorage.setItem("accessToken", loginPost.data.jwt);
     } catch (error) {}
   };
 }
