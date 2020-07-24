@@ -8,7 +8,7 @@ export default function productMainCard(props) {
         src={props.imageUrl}
         alt={props.description}
         style={{
-          "max-height": "400px",
+          maxHeight: "400px",
           width: "auto",
           border: "solid 5px black",
           margin: "8px",

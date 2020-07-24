@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../store/auth/actions";
+import { login, logout } from "../store/auth/actions";
 import { selectAuth } from "../store/auth/selectors";
+import { Link } from "react-router-dom";
 
 export default function LoginPage() {
   const auth = useSelector(selectAuth);
@@ -13,12 +14,9 @@ export default function LoginPage() {
     event.preventDefault();
 
     dispatch(login(email, password));
-    if (!auth.user || !auth.token) {
-      return <p>Please give us valid credentials!</p>;
-    }
   }
 
-  return (
+  return !auth.user || !auth.token ? (
     <div>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
@@ -46,6 +44,49 @@ export default function LoginPage() {
           <button type="submit">Login</button>
         </p>
       </form>
+    </div>
+  ) : (
+    <div>
+      <h1>{`You are already logged in ${auth.user.firstName}!`}</h1>
+      <div>
+        If you would like to log in as a different user, you can do so by
+        clicking the Logout
+      </div>{" "}
+      button below!
+      <br></br>
+      <br></br>
+      <button
+        style={{
+          width: "200px",
+          height: "60px",
+          margin: "5px",
+          fontSize: "40px",
+        }}
+        onClick={() => {
+          dispatch(logout);
+        }}
+      >
+        Log Out
+      </button>
+      <br></br>
+      <br></br>
+      <br></br>
+      If you want to continue <strong>shopping</strong>, click the home page
+      button below!
+      <br></br>
+      <br></br>
+      <Link to={"/"}>
+        <button
+          style={{
+            width: "200px",
+            height: "auto",
+            margin: "5px",
+            fontSize: "40px",
+          }}
+        >
+          Home Page
+        </button>
+      </Link>
     </div>
   );
 }

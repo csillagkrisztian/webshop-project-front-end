@@ -28,6 +28,10 @@ export default function ProductPage() {
         imageUrl={product.imageUrl}
         description={product.description}
       />
+
+      <button style={{ margin: "14px" }} onClick={() => {}}>
+        Add To Cart
+      </button>
     </div>
   );
 }
