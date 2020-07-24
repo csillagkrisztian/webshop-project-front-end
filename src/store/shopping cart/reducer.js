@@ -10,6 +10,9 @@ export default (state = initialState, { type, payload }) => {
       const newItems = state.items.filter((i) => i.id !== payload.id);
       return { items: [...newItems] };
     }
+    case "REMOVE_ALL": {
+      return initialState;
+    }
     default:
       return state;
   }

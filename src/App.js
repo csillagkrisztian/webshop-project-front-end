@@ -7,6 +7,7 @@ import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import Toolbar from "./components/Toolbar";
 import ShoppingCartPage from "./pages/ShoppingCartPage";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/product/:productId" component={ProductPage} />
         <Route path="/category/:categoryId" component={CategoryPage} />
         <Route path="/auth/login" component={LoginPage} />
+        <Route path="/cart/success" component={SuccessPage} />
         <Route path="/cart" component={ShoppingCartPage} />
         <Route component={HomePage} />
       </Switch>

@@ -20,8 +20,7 @@ export default function ProductPage() {
 
   const product = useSelector(selectProductById(parseInt(productId)));
   const items = useSelector(selectCartItems);
-  console.log(items);
-  console.log(product);
+
   return !product ? (
     <h3>
       Hey! It seems we still need some stuff to work properly! Just a moment...

@@ -11,40 +11,52 @@ export default function Toolbar() {
   return !auth.user && !auth.token ? (
     <div
       style={{
-        textAlign: "left",
         margin: "5px",
         padding: "12px",
         background: "grey",
       }}
     >
-      {" "}
-      <Link to={"/"}>
-        <button>Home</button>
-      </Link>
-      <Link to={"/auth/login"}>
-        <button>Login</button>
-      </Link>
+      <div
+        style={{
+          textAlign: "left",
+        }}
+      >
+        {" "}
+        <Link to={"/"}>
+          <button>Home</button>
+        </Link>
+        <Link to={"/auth/login"}>
+          <button>Login</button>
+        </Link>
+        <Link to={"/cart"}>
+          <button>Shopping Cart</button>
+        </Link>
+      </div>
     </div>
   ) : (
     <div
       style={{
-        textAlign: "left",
         margin: "5px",
         padding: "12px",
         background: "grey",
       }}
     >
-      <Link to={"/"}>
-        <button>Home</button>
-      </Link>{" "}
-      <button
-        onClick={() => {
-          dispatch(logout);
-        }}
-      >
-        Logout
-      </button>
-      Welcome back <strong>{auth.user.firstName}</strong>!{" "}
+      <div style={{ textAlign: "left" }}>
+        <Link to={"/"}>
+          <button>Home</button>
+        </Link>{" "}
+        <button
+          onClick={() => {
+            dispatch(logout);
+          }}
+        >
+          Logout
+        </button>
+        Welcome back <strong>{auth.user.firstName}</strong>!{" "}
+        <Link to={"/cart"}>
+          <button>Shopping Cart</button>
+        </Link>
+      </div>
     </div>
   );
 }
