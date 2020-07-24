@@ -18,6 +18,9 @@ export default function Toolbar() {
       }}
     >
       {" "}
+      <Link to={"/"}>
+        <button>Home</button>
+      </Link>
       <Link to={"/auth/login"}>
         <button>Login</button>
       </Link>
@@ -31,7 +34,9 @@ export default function Toolbar() {
         background: "grey",
       }}
     >
-      Welcome back <strong>{auth.user.firstName}</strong>!{" "}
+      <Link to={"/"}>
+        <button>Home</button>
+      </Link>{" "}
       <button
         onClick={() => {
           dispatch(logout);
@@ -39,6 +44,7 @@ export default function Toolbar() {
       >
         Logout
       </button>
+      Welcome back <strong>{auth.user.firstName}</strong>!{" "}
     </div>
   );
 }
