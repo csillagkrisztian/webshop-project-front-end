@@ -1,4 +1,4 @@
-export const selectProducts = (state) => {
+export const selectCategories = (state) => {
   return state.categories;
 };
 

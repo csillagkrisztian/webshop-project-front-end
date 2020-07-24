@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCategoryById } from "../store/productCategories/selectors";
-import { getAllProducts } from "../store/productCategories/actions";
+import { getAllCategories } from "../store/productCategories/actions";
 import ProductCards from "../components/productCards";
 
 export default function CategoryPage() {
@@ -11,7 +11,7 @@ export default function CategoryPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts());
+    dispatch(getAllCategories());
   }, [dispatch]);
 
   const category = useSelector(selectCategoryById(parseInt(categoryId)));
@@ -27,7 +27,19 @@ export default function CategoryPage() {
       ) : (
         <div>
           <h1>{category.name}</h1>
-          <ProductCards name={category.products[0].name} />
+          <p>{category.description}</p>
+          {category.products.map((c) => {
+            return (
+              <div key={c.id}>
+                <ProductCards
+                  id={c.id}
+                  name={c.name}
+                  imageUrl={c.imageUrl}
+                  page={"product"}
+                />
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
