@@ -25,6 +25,4 @@ export const finalizeOrders = (items, userId) => async (dispatch, getState) => {
   const stuff = await Promise.all(orderedItems);
   console.log(userId);
   console.log(stuff);
-
-  const order = axios.post;
 };
