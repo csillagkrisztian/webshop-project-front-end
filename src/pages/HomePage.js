@@ -5,6 +5,7 @@ import { selectCategories } from "../store/productCategories/selectors";
 import ProductCards from "../components/productCards";
 import { selectAllProducts } from "../store/products/selectors";
 import { getAllProducts } from "../store/products/actions";
+import { bootstrapLoginState } from "../store/auth/actions";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     dispatch(getAllCategories());
     dispatch(getAllProducts());
+    dispatch(bootstrapLoginState());
   }, [dispatch]);
 
   return !categories.categories.length && !products.products.length ? (
