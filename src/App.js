@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import Toolbar from "./components/Toolbar";
 import ShoppingCartPage from "./pages/ShoppingCartPage";
 import SuccessPage from "./pages/SuccessPage";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Switch>
         <Route path="/product/:productId" component={ProductPage} />
         <Route path="/category/:categoryId" component={CategoryPage} />
+        <Route path="/auth/signup" component={SignUpPage} />
         <Route path="/auth/login" component={LoginPage} />
         <Route path="/cart/success" component={SuccessPage} />
         <Route path="/cart" component={ShoppingCartPage} />

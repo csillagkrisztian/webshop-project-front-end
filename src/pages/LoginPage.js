@@ -43,6 +43,24 @@ export default function LoginPage() {
         <p>
           <button type="submit">Login</button>
         </p>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <p>If you don't have an account, sign up here!</p>
+        <Link to={"/auth/signup"}>
+          <button
+            style={{
+              width: "100px",
+              height: "auto",
+              margin: "5px",
+              fontSize: "20px",
+            }}
+          >
+            Sign Up
+          </button>
+        </Link>
       </form>
     </div>
   ) : (
